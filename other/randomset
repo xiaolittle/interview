@@ -1,0 +1,35 @@
+package ds;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+
+public class RandomSet<T> {
+	private ArrayList<T> al = new ArrayList<T>();
+	private HashMap<T, Integer> hs = new HashMap<T, Integer>();
+
+	public void add(T item) {
+		if (hs.containsKey(item)) {
+			hs.put(item, al.size());
+			al.add(item);
+		}
+	}
+
+	public void remove(T item) {
+		if (hs.containsKey(item)) {
+			if (hs.get(item) < al.size() - 1) {
+				T last = al.get(al.size() - 1);
+				al.set(hs.get(item), last);
+				hs.put(last, hs.get(item));
+			}
+			al.remove(al.size() - 1);
+			hs.remove(item);
+		}
+	}
+
+	public T randomFetch() {
+		if (al.size() == 0)
+			return null;
+		return al.get(new Random().nextInt(al.size()));
+	}
+}
