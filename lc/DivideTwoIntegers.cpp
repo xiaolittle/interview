@@ -27,7 +27,6 @@ public:
 		}
 		long long cur = 1;
 		long long a = b;
-
 		long long ans = 0;
 
 		while(true) {
