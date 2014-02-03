@@ -14,7 +14,7 @@ void farestPair(const vector<int> &height) {
     for(int i = 1; i < n; ++i) {
         int low = 0;
         int high = left.size();
-        if(height[i] < height[left.size() - 1]) {
+        if(height[i] < height[left[left.size() - 1]]) {
             left.push_back(i);
         } else {
             while(low < high) {
@@ -25,6 +25,9 @@ void farestPair(const vector<int> &height) {
                     high = mid;
                 }
             }
+      //      if(i == 8 || i == 9) {
+      //          printf("i = %d,low = %d,size = %d\n",i,low,left.size());
+      //      }
             if((i - left[low]) > ans) {
                 start = left[low];
                 end = i;
@@ -37,9 +40,9 @@ void farestPair(const vector<int> &height) {
 }
 
 int main() {
-    //vector<int> h = {1,2,3,1,2,3,4};
-    vector<int> h = {5,3,4,2,5,1,1};
-
+//    vector<int> h = {1,7,4,0,9,4,8,8,2,4};
+    //vector<int> h = {5,3,4,2,5,1,1};
+  vector<int> h = {0,5,2,2,7,3,7,9,0,2};  
     farestPair(h);
     return 0;
 }
