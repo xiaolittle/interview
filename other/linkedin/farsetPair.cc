@@ -13,7 +13,7 @@ void farestPair(const vector<int> &height) {
     int ans = 0;
     for(int i = 1; i < n; ++i) {
         int low = 0;
-        int high = i;
+        int high = left.size();
         if(height[i] < height[left.size() - 1]) {
             left.push_back(i);
         } else {
@@ -37,7 +37,9 @@ void farestPair(const vector<int> &height) {
 }
 
 int main() {
-    vector<int> h = {5,3,4,2,5,1,5,2};
+    //vector<int> h = {1,2,3,1,2,3,4};
+    vector<int> h = {5,3,4,2,5,1,1};
+
     farestPair(h);
     return 0;
 }
